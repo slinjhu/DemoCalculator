@@ -9,20 +9,23 @@ class Model{
     
     enum Operation {
         case Constant(Double)
-        case Unary
+        case Unary(Double -> Double)
         case Binary
         case Equals
     }
     
     private var operations : Dictionary<String,Operation> = [
         "π" : Operation.Constant(M_PI),
-        "e" : Operation.Constant(M_E)
+        "e" : Operation.Constant(M_E),
+        "√" : Operation.Unary(sqrt),
+        "cos" : Operation.Unary(cos),
+        "sin" : Operation.Unary(sin)
     ]
     
     func performOperation(symbol : String){
         switch operations[symbol]! {
         case Operation.Constant(let v) : accumulator = v
-        case Operation.Unary : break
+        case Operation.Unary(let f) : accumulator = f(accumulator)
         case Operation.Binary : break
         case Operation.Equals : break
         }
