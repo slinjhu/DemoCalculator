@@ -18,8 +18,10 @@ class Model{
         "π" : Operation.Constant(M_PI),
         "e" : Operation.Constant(M_E),
         "√" : Operation.Unary(sqrt),
+        "sq" : Operation.Unary({$0 * $0}),
         "cos" : Operation.Unary(cos),
         "sin" : Operation.Unary(sin),
+        "tan" : Operation.Unary(tan),
         "±" : Operation.Unary({-$0}),
         "+" : Operation.Binary({$0 + $1}),
         "-" : Operation.Binary({$0 - $1}),
@@ -27,7 +29,7 @@ class Model{
         "/" : Operation.Binary({$0 / $1}),
         "=" : Operation.Equals
     ]
-
+    
     private struct PendingBinaryOperationInfo {
         var function : (Double, Double) -> Double
         var firstOprand : Double
@@ -39,9 +41,15 @@ class Model{
         switch operations[symbol]! {
         case Operation.Constant(let v) : accumulator = v
         case Operation.Unary(let f) : accumulator = f(accumulator)
-        case Operation.Binary(let f) : pending2 = PendingBinaryOperationInfo(function: f, firstOprand: accumulator)
+        case Operation.Binary(let f) : if pending2 == nil{
+            pending2 = PendingBinaryOperationInfo(function: f, firstOprand: accumulator)
+        }else{
+            accumulator = pending2!.function(pending2!.firstOprand, accumulator)
+            pending2!.firstOprand = accumulator
+            }
         case Operation.Equals : if pending2 != nil {
-                accumulator = pending2!.function(pending2!.firstOprand, accumulator)
+            accumulator = pending2!.function(pending2!.firstOprand, accumulator)
+            pending2 = nil
             }
         }
     }
