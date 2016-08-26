@@ -7,7 +7,7 @@ class Model{
         accumulator = x
     }
     
-    enum Operation {
+    private enum Operation {
         case Constant(Double)
         case Unary(Double -> Double)
         case Binary((Double, Double) -> Double)
@@ -28,7 +28,7 @@ class Model{
         "=" : Operation.Equals
     ]
 
-    struct PendingBinaryOperationInfo {
+    private struct PendingBinaryOperationInfo {
         var function : (Double, Double) -> Double
         var firstOprand : Double
     }
