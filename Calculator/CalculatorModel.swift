@@ -2,11 +2,11 @@ import Foundation
 
 class Model{
     private var accumulator : Double = 0.0
-
+    
     func setOperand(x : Double) {
         accumulator = x
     }
-
+    
     enum Operation {
         case Constant(Double)
         case Unary
@@ -20,13 +20,11 @@ class Model{
     ]
     
     func performOperation(symbol : String){
-        switch symbol {
-        case "π":
-            accumulator = M_PI
-        case "√":
-            accumulator = sqrt(accumulator)
-        default:
-            accumulator = 0
+        switch operations[symbol]! {
+        case Operation.Constant(let v) : accumulator = v
+        case Operation.Unary : break
+        case Operation.Binary : break
+        case Operation.Equals : break
         }
         
     }
