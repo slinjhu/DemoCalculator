@@ -4,6 +4,8 @@ import UIKit
 class ViewController: UIViewController {
  
     @IBOutlet weak var display: UILabel!
+
+    var userIsTyping = false
     
     var displayValue : Double {
         get{
@@ -15,9 +17,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func touchDigit(sender: UIButton) {
-        let digit = Double(sender.currentTitle!)!
-
-        displayValue = digit
+        let digit : String = sender.currentTitle!
+        let currentDisplay = display.text!
+        if(userIsTyping){
+            display.text = currentDisplay + digit
+        }else{
+            display.text = digit
+        }
+        userIsTyping = true
     }
 
 }
