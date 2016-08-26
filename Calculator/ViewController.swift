@@ -2,9 +2,9 @@
 import UIKit
 
 class ViewController: UIViewController {
- 
+    
     @IBOutlet weak var display: UILabel!
-
+    
     var userIsTyping = false
     
     var displayValue : Double {
@@ -26,10 +26,19 @@ class ViewController: UIViewController {
         }
         userIsTyping = true
     }
-
+    
     @IBAction func performOperation(sender: UIButton) {
-        displayValue = M_PI
+        if let symbol : String = sender.currentTitle!{
+            switch symbol {
+            case "π":
+                displayValue = M_PI
+            default:
+                displayValue = 0
+            }
+        }
+        
         userIsTyping = false
     }
 }
 
+ 
