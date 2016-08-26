@@ -27,5 +27,9 @@ class ViewController: UIViewController {
         userIsTyping = true
     }
 
+    @IBAction func performOperation(sender: UIButton) {
+        displayValue = M_PI
+        userIsTyping = false
+    }
 }
 
