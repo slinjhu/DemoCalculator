@@ -5,9 +5,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
     
-    var userIsTyping = false
+    private var userIsTyping = false
     
-    var displayValue : Double {
+    private var displayValue : Double {
         get{
             return Double(display.text!)!
         }
@@ -27,14 +27,16 @@ class ViewController: UIViewController {
         userIsTyping = true
     }
     
+    private var model = Model()
+    
     @IBAction func performOperation(sender: UIButton) {
+        if userIsTyping{
+            model.setOperand(displayValue)
+        }
+        
         if let symbol : String = sender.currentTitle!{
-            switch symbol {
-            case "π":
-                displayValue = M_PI
-            default:
-                displayValue = 0
-            }
+            model.performOperation(symbol)
+            displayValue = model.result
         }
         
         userIsTyping = false

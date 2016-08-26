@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D51BDF5B1D700C490067FB21 /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51BDF5A1D700C490067FB21 /* CalculatorModel.swift */; };
 		D53A3CDC1D6FFCE00015DCD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53A3CDB1D6FFCE00015DCD2 /* AppDelegate.swift */; };
 		D53A3CDE1D6FFCE00015DCD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53A3CDD1D6FFCE00015DCD2 /* ViewController.swift */; };
 		D53A3CE11D6FFCE00015DCD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D53A3CDF1D6FFCE00015DCD2 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D51BDF5A1D700C490067FB21 /* CalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
 		D53A3CD81D6FFCE00015DCD2 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D53A3CDB1D6FFCE00015DCD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D53A3CDD1D6FFCE00015DCD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				D53A3CDD1D6FFCE00015DCD2 /* ViewController.swift */,
 				D53A3CDF1D6FFCE00015DCD2 /* Main.storyboard */,
+				D51BDF5A1D700C490067FB21 /* CalculatorModel.swift */,
 				D51BDF591D6FFE750067FB21 /* Supporting Files */,
 			);
 			path = Calculator;
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D51BDF5B1D700C490067FB21 /* CalculatorModel.swift in Sources */,
 				D53A3CDE1D6FFCE00015DCD2 /* ViewController.swift in Sources */,
 				D53A3CDC1D6FFCE00015DCD2 /* AppDelegate.swift in Sources */,
 			);
