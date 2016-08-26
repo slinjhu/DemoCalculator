@@ -6,10 +6,17 @@ class Model{
     func setOperand(x : Double) {
         accumulator = x
     }
+
+    enum Operation {
+        case Constant(Double)
+        case Unary
+        case Binary
+        case Equals
+    }
     
-    private var operations : Dictionary<String,Double> = [
-        "π" : M_PI,
-        "e" : M_E
+    private var operations : Dictionary<String,Operation> = [
+        "π" : Operation.Constant(M_PI),
+        "e" : Operation.Constant(M_E)
     ]
     
     func performOperation(symbol : String){
