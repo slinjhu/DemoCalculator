@@ -7,6 +7,11 @@ class Model{
         accumulator = x
     }
     
+    private var operations : Dictionary<String,Double> = [
+        "π" : M_PI,
+        "e" : M_E
+    ]
+    
     func performOperation(symbol : String){
         switch symbol {
         case "π":
